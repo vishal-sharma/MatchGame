@@ -61,13 +61,14 @@ namespace MatchGame
                     string nextEmoji = animalEmoji[index];
                     textBlock.Text = nextEmoji;
                     animalEmoji.RemoveAt(index);
-                }              
-
-                timer.Start();
-                tenthsOfSecondsElapsed = 0;
-                matchesFound = 0;
+                }          
+                               
             }
-            
+
+            timer.Start();
+            tenthsOfSecondsElapsed = 0;
+            matchesFound = 0;
+
         }
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
@@ -94,6 +95,10 @@ namespace MatchGame
 
         private void TimeTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            if (matchesFound == 8)
+            {
+                SetUpGame();
+            }
         }
     }
 }
